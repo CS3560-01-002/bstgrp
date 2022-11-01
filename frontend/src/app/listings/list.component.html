@@ -1,0 +1,31 @@
+<h1>Listings</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add User</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Unit ID</th>
+            <th style="width: 30%">Cost</th>
+            <th style="width: 30%">Availability</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let listing of listings">
+            <td>{{listing.unitNo}}</td>
+            <td>{{listing.cost}}</td>
+            <td>{{listing.availability}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{listing.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteListing(listing.id)" class="btn btn-sm btn-danger btn-delete-listing" [disabled]="listing.isDeleting">
+                    <span *ngIf="listing.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!listing.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!listings">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
