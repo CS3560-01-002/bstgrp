@@ -15,6 +15,7 @@ import { HomeComponent } from './home';
 import { LeaseComponent } from './lease/lease.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { UnitComponent } from './unit/unit.component';
+import { ListingComponent } from './listing/listing.component';
 
 @NgModule({
     imports: [
@@ -26,11 +27,11 @@ import { UnitComponent } from './unit/unit.component';
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent
-,
+        HomeComponent,
         LeaseComponent ,
         MaintenanceComponent ,
-        UnitComponent  ],
+        UnitComponent ,
+        ListingComponent ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
