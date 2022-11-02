@@ -23,8 +23,9 @@ export class AddEditComponent implements OnInit {
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
-        this.isAddMode = !this.id;
-        
+        console.log(`value of id: ${this.id}`); 
+        this.isAddMode = !this.id; //gets the userid and then negates the string id value to get a boolean value of false to indicate that the user already exists and only needs to be edited
+        console.log(`value of isAddMode: ${this.isAddMode}`); 
         // password not required in edit mode
         const passwordValidators = [Validators.minLength(6)];
         if (this.isAddMode) {
