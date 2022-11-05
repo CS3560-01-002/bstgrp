@@ -1,11 +1,11 @@
-export class Unit {
+export class Listing {
     id: string;
     unitNo: number;
     bedrooms: number;
     bathrooms: number;
-    airCondition: boolean;
-    heating: boolean;
+    airCondition: string;
+    heating: string;
     address: string;
     cost: number;
-    availability: boolean;
+    availability: string;
 }

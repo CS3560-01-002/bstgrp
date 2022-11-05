@@ -1,4 +1,5 @@
 <div class="p-4">
+
 <h1>Listings</h1>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Unit</a>
 <table class="table table-striped">
@@ -6,28 +7,28 @@
         <tr>
             <th style="width: 30%">Unit No</th>
             <th style="width: 30%">Price</th>
-            <th style="width: 30%">Sq. Feet</th>
+            <th style="width: 30%">Availability</th>
             <th style="width: 10%"></th>
         </tr>
     </thead>
-    <!-- <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.username}}</td>
+    <tbody>
+        <tr *ngFor="let listing of listings">
+            <td>{{listing.unitNo}}</td>
+            <td>{{listing.cost}}</td>
+            <td>{{listing.availability}}</td>
             <td style="white-space: nowrap">
-                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
-                <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
-                    <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
-                    <span *ngIf="!user.isDeleting">Delete</span>
+                <a routerLink="edit/{{listing.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteUser(listing.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="listing.isDeleting">
+                    <span *ngIf="listing.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!listing.isDeleting">Delete</span>
                 </button>
             </td>
         </tr>
-        <tr *ngIf="!users">
+        <tr *ngIf="!listings">
             <td colspan="4" class="text-center">
                 <span class="spinner-border spinner-border-lg align-center"></span>
             </td>
         </tr>
-    </tbody> -->
+    </tbody>
 </table>
 </div>
