@@ -16,19 +16,19 @@ router.delete('/:id', authorize(), _delete);
 
 module.exports = router;
 
-function authenticateSchema(req, res, next) {
-    const schema = Joi.object({
-        username: Joi.string().required(),
-        password: Joi.string().required()
-    });
-    validateRequest(req, next, schema);
-}
+// function authenticateSchema(req, res, next) {
+//     const schema = Joi.object({
+//         username: Joi.string().required(),
+//         password: Joi.string().required()
+//     });
+//     validateRequest(req, next, schema);
+// }
 
-function authenticate(req, res, next) {
-    listingService.authenticate(req.body)
-        .then(user => res.json(user))
-        .catch(next);
-}
+// function authenticate(req, res, next) {
+//     listingService.authenticate(req.body)
+//         .then(user => res.json(user))
+//         .catch(next);
+// }
 
 function registerSchema(req, res, next) {
     const schema = Joi.object({
@@ -46,7 +46,7 @@ function registerSchema(req, res, next) {
 
 function register(req, res, next) {
     listingService.create(req.body)
-        .then(() => res.json({ message: 'Listing creation successful' }))
+        .then(() => res.json({ message: 'Unit creation successful' }))
         .catch(next);
 }
 
@@ -88,6 +88,6 @@ function update(req, res, next) {
 
 function _delete(req, res, next) {
     listingService.delete(req.params.id)
-        .then(() => res.json({ message: 'Listing deleted successfully' }))
+        .then(() => res.json({ message: 'Unit deleted successfully' }))
         .catch(next);
 }

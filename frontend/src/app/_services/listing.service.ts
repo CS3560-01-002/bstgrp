@@ -5,35 +5,35 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { Listing } from '@app/_models/listing';
+import { Unit } from '@app/_models/unit';
 
 @Injectable({ providedIn: 'root' })
 export class ListingService {
-  private listingSubject: BehaviorSubject<Listing>;
-  public listing: Observable<Listing>;
+  private listingSubject: BehaviorSubject<Unit>;
+  public listing: Observable<Unit>;
 
   constructor(
     private router: Router,
     private http: HttpClient
   ) {
-    this.listingSubject = new BehaviorSubject<Listing>(JSON.parse(localStorage.getItem('listing')));
+    this.listingSubject = new BehaviorSubject<Unit>(JSON.parse(localStorage.getItem('listing')));
     this.listing = this.listingSubject.asObservable();
   }
 
-  public get listingValue(): Listing {
+  public get listingValue(): Unit {
     return this.listingSubject.value;
   }
 
-  register(listing: Listing) {
+  register(listing: Unit) {
     return this.http.post(`${environment.apiUrl}/listings/register`, listing);
   }
 
   getAll() { //get function add comment
-    return this.http.get<Listing[]>(`${environment.apiUrl}/listings`);
+    return this.http.get<Unit[]>(`${environment.apiUrl}/listings`);
   }
 
   getById(id: string) {
-    return this.http.get<Listing>(`${environment.apiUrl}/listings/${id}`);
+    return this.http.get<Unit>(`${environment.apiUrl}/listings/${id}`);
   }
 
   // needs to be looked over

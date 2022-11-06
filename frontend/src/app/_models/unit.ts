@@ -1,4 +1,4 @@
-export class Listing {
+export class Unit {
     id: string;
     unitNo: number;
     bedrooms: number;

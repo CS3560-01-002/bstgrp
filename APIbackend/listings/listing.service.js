@@ -24,7 +24,7 @@ module.exports = {
 // }
 
 async function getAll() {
-    return await db.Listing.findAll();
+    return await db.Unit.findAll();
 }
 
 async function getById(id) {
@@ -33,7 +33,7 @@ async function getById(id) {
 
 async function create(params) {
     // validate
-    if (await db.Listing.findOne({ where: { unitNo: params.unitNo } })) {
+    if (await db.Unit.findOne({ where: { unitNo: params.unitNo } })) {
         throw 'Unit Number "' + params.unitNo + '" is already taken';
     }
 
@@ -45,7 +45,7 @@ async function create(params) {
     //handle other logic for updating other unit fields
 
     // save user
-    await db.Listing.create(params);
+    await db.Unit.create(params);
 }
 
 async function update(id, params) {
@@ -77,12 +77,12 @@ async function _delete(id) {
 // helper functions
 
 async function getUnit(id) {
-    const unit = await db.Listing.findByPk(id);
-    if (!unit) throw 'Listing not found';
+    const unit = await db.Unit.findByPk(id);
+    if (!unit) throw 'Unit not found';
     return unit;
 }
 
-function omitHash(user) {
-    const { hash, ...userWithoutHash } = user;
-    return userWithoutHash;
-}
+// function omitHash(user) {
+//     const { hash, ...userWithoutHash } = user;
+//     return userWithoutHash;
+// }
