@@ -1,8 +1,8 @@
-export class Lease {
-    id: string;
-    unitNo: string;
-    complexName: string;
-    address: string;
-    startDate: number;
-    endDate: number;
+export class lease {
+    id: int;
+    term: int;
+    approved_by: string;
+    cosigner: string;
+    unit_id: string;
+    tenant_id: int;
 }
