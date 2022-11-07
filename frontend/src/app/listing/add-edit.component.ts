@@ -1,13 +1,14 @@
-﻿import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '@app/_services';
+import { ListingService } from '@app/_services/listing.service';
+import { AlertService } from '@app/_services';
 
 @Component({ templateUrl: 'add-edit.component.html' })
-export class AddEditComponent implements OnInit {
-    form: FormGroup;
+export class AddEditComponentListings implements OnInit {
+    formListing: FormGroup;
     id: string;
     isAddMode: boolean;
     loading = false;
@@ -17,7 +18,7 @@ export class AddEditComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private accountService: AccountService,
+        private listingService: ListingService,
         private alertService: AlertService
     ) {}
 
@@ -33,22 +34,27 @@ export class AddEditComponent implements OnInit {
             passwordValidators.push(Validators.required);
         }
 
-        this.form = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            username: ['', Validators.required],
-            password: ['', passwordValidators]
+        this.formListing = this.formBuilder.group({
+            unitNo: ['', Validators.required],
+            bedrooms: ['', Validators.required],
+            bathrooms: ['', Validators.required],
+            airCondition: ['', Validators.required],
+            heating: ['', Validators.required],
+            address: ['', Validators.required],
+            cost: ['', Validators.required],
+            availability: ['', Validators.required],
+
         });
 
         if (!this.isAddMode) {
-            this.accountService.getById(this.id)
+            this.listingService.getById(this.id)
                 .pipe(first())
-                .subscribe(x => this.form.patchValue(x));
+                .subscribe(x => this.formListing.patchValue(x));
         }
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+    get f() { return this.formListing.controls; }
 
     onSubmit() {
         this.submitted = true;
@@ -57,24 +63,24 @@ export class AddEditComponent implements OnInit {
         this.alertService.clear();
 
         // stop here if form is invalid
-        if (this.form.invalid) {
+        if (this.formListing.invalid) {
             return;
         }
 
         this.loading = true;
         if (this.isAddMode) {
-            this.createUser();
+            this.createUnit();
         } else {
-            this.updateUser();
+            this.updateUnit();
         }
     }
 
-    private createUser() {
-        this.accountService.register(this.form.value)
+    private createUnit() {
+        this.listingService.register(this.formListing.value)
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.alertService.success('User added successfully', { keepAfterRouteChange: true });
+                    this.alertService.success('Unit added successfully', { keepAfterRouteChange: true });
                     this.router.navigate(['../'], { relativeTo: this.route });
                 },
                 error: error => {
@@ -84,8 +90,8 @@ export class AddEditComponent implements OnInit {
             });
     }
 
-    private updateUser() {
-        this.accountService.update(this.id, this.form.value)
+    private updateUnit() {
+        this.listingService.update(this.id, this.formListing.value)
             .pipe(first())
             .subscribe({
                 next: () => {

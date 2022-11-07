@@ -14,24 +14,22 @@ import { HomeComponent } from './home';
 //newly generated components get added here
 import { LeaseComponent } from './lease/lease.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
-import { UnitComponent } from './unit/unit.component';
-import { ListingComponent } from './listing/listing.component';
+import { RouterModule } from '@angular/router';;
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        RouterModule
     ],
     declarations: [
         AppComponent,
         AlertComponent,
         HomeComponent,
         LeaseComponent ,
-        MaintenanceComponent ,
-        UnitComponent ,
-        ListingComponent ],
+        MaintenanceComponent] ,
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
