@@ -1,8 +1,10 @@
-export class Applicant {
-    id: string;
-    username: string;
-    password: string;
-    applicationID: number;
-    contactID: number;
-    financialID: number;
+export class application {
+    id: int;
+    credit_score: int;
+    income: int;
+    unit_id: int;
+    employer: string;
+    house_mate_count: int;
+    vehicle: int;
+    application_id: int;
 }
