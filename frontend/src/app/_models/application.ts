@@ -1,10 +1,10 @@
 export class application {
-    id: int;
-    credit_score: int;
-    income: int;
-    unit_id: int;
+    id: number;
+    credit_score: number;
+    income: number;
+    unit_id: number;
     employer: string;
-    house_mate_count: int;
-    vehicle: int;
-    application_id: int;
+    house_mate_count: number;
+    vehicle: number;
+    application_id: number;
 }

@@ -6,5 +6,5 @@ export class Tenant {
     financialID: number;
     staffPhoneNum: number;
     maintenancePhoneNum:  number;
-    leaseID;
+    leaseID: number;
 }

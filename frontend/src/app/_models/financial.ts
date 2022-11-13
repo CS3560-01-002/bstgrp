@@ -1,8 +1,8 @@
 export class financial {
-    id: int;
-    payment_history: int;
-    bills_due: int;
-    bill_amount: double;
-    security_deposit: double;
-    unit_id: int;
+    id: number;
+    payment_history: number;
+    bills_due: number;
+    bill_amount: number;
+    security_deposit: number;
+    unit_id: number;
 }
