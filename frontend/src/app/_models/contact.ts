@@ -1,6 +1,6 @@
 export class contact{
-    id: int;
-    user_id: int;
+    id: number;
+    user_id: number;
     phone_mobile: string;
     phone_home: string;
     address: string;

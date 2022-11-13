@@ -1,8 +1,8 @@
 export class lease {
-    id: int;
-    term: int;
+    id: number;
+    term: number;
     approved_by: string;
     cosigner: string;
     unit_id: string;
-    tenant_id: int;
+    tenant_id: number;
 }
