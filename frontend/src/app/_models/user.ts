@@ -3,6 +3,7 @@
     first_name: string;
     middle_name: string;
     last_name: string;
+    username: string;
     title: string;
     dob: string;
     ssn: string;

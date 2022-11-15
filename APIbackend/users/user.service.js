@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 
+//similar to the services functionality used in the Angular app under _services
+
 module.exports = {
     authenticate,
     getAll,
@@ -37,7 +39,7 @@ async function create(params) {
         throw 'Username "' + params.username + '" is already taken';
     }
 
-    // hash password
+    // hash password 
     if (params.password) {
         params.hash = await bcrypt.hash(params.password, 10);
     }

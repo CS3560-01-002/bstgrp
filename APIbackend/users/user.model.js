@@ -5,8 +5,14 @@ module.exports = model;
 function model(sequelize) {
     const attributes = {
         first_name: { type: DataTypes.STRING, allowNull: false },
+        middle_name: { type: DataTypes.STRING, allowNull: true },
         last_name: { type: DataTypes.STRING, allowNull: false },
         username: { type: DataTypes.STRING, allowNull: false },
+        title: { type: DataTypes.STRING, allowNull: true },
+        dob: { type: DataTypes.STRING, allowNull: false },
+        ssn: { type: DataTypes.STRING, allowNull: false },
+        drivers_license: { type: DataTypes.STRING, allowNull: false },
+        accountPrivilege: { type: DataTypes.STRING, allowNull: true },
         hash: { type: DataTypes.STRING, allowNull: false }
     };
 
@@ -21,6 +27,6 @@ function model(sequelize) {
         }
     };
 
-    return sequelize.define('user', attributes, options); //changine the string value is the same as
+    return sequelize.define('User', attributes, options); //changine the string value is the same as
     //changing the table reference value for accessing the data.
 }
