@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '@app/_services';
+import { MaintenanceService } from '@app/_services/maintenance.service';
+import { AlertService } from '@app/_services';
 
 @Component({
   selector: 'app-maintenance',
@@ -21,7 +22,7 @@ export class MaintenanceComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private accountService: AccountService, //call maintenance service to access API endpoints
+        private maintenanceService: MaintenanceService, //call maintenance service to access API endpoints
         private alertService: AlertService
     ) { }
 
@@ -29,6 +30,7 @@ export class MaintenanceComponent implements OnInit {
         this.form = this.formBuilder.group({
             username: ['', Validators.required], //associated tenant username
             description: ['', Validators.required], 
+            phoneNo: ['', Validators.required],
         });
     }
 
@@ -47,7 +49,7 @@ export class MaintenanceComponent implements OnInit {
         }
 
         this.loading = true;
-        this.accountService.register(this.form.value)
+        this.maintenanceService.register(this.form.value)
             .pipe(first())
             .subscribe({
                 next: () => {
