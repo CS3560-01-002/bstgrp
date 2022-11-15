@@ -33,11 +33,23 @@ function authenticate(req, res, next) {
 function registerSchema(req, res, next) {
     const schema = Joi.object({
         first_name: Joi.string().required(),
+        middle_name: Joi.string(),
         last_name: Joi.string().required(),
         username: Joi.string().required(),
+        title: Joi.string().required(),
+        dob: Joi.string().required(),
+        ssn: Joi.string().required(),
+        drivers_license: Joi.string().required(),
+        accountPrivilege: Joi.string(), //leave it as not required for now and the
         password: Joi.string().min(6).required()
+
     });
     validateRequest(req, next, schema);
+}
+
+function setAccountPrivilege(req, res, next){
+    
+
 }
 
 function register(req, res, next) {

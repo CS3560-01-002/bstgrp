@@ -10,10 +10,44 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="middle_name">Middle Name</label>
+                <input type="text" formControlName="middle_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.middle_name.errors }" />
+                <div *ngIf="submitted && f.middle_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.middle_name.errors.required">Middle Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="last_name">Last Name</label>
                 <input type="text" formControlName="last_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }" />
                 <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
                     <div *ngIf="f.last_name.errors.required">Last Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Preferred Title</label>
+                <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+                <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">D.O.B</label>
+                <input type="text" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                    <div *ngIf="f.dob.errors.required">DOB is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ssn">SSN</label>
+                <input type="text" formControlName="ssn" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ssn.errors }" />
+                <div *ngIf="submitted && f.ssn.errors" class="invalid-feedback">
+                    <div *ngIf="f.ssn.errors.required">Social Security Number is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="drivers_license">DL No.</label>
+                <input type="text" formControlName="drivers_license" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.drivers_license.errors }" />
+                <div *ngIf="submitted && f.drivers_license.errors" class="invalid-feedback">
+                    <div *ngIf="f.drivers_license.errors.required">Driver's License Number is required</div>
                 </div>
             </div>
             <div class="form-group">
