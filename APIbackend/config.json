@@ -2,9 +2,9 @@
     "database": {
         "host": "edwin-dev.com",
         "port": 3306,
-        "user": "cpp3560",
-        "password": "$slumL0rdM1llionair3!",
-        "database": "cpp3560"
+        "user": "root",
+        "password": "Shashi@123",
+        "database": "WebAMS"
     },
     "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
 }

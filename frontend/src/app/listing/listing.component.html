@@ -1,7 +1,7 @@
 <div class="p-4">
 
 <h1>Listings</h1>
-<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Unit</a>
+<a routerLink="add" class="btn btn-sm btn-success mb-2" *ngIf="this.adminAccess">Add Unit</a>
 <table class="table table-striped">
     <thead>
         <tr>

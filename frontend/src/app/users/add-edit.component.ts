@@ -37,9 +37,12 @@ export class AddEditComponent implements OnInit {
             first_name: ['', Validators.required],
             last_name: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', passwordValidators]
+            password: ['', passwordValidators],
+            //approval: ['hello', Validators.required]
+            account_type: ['', Validators.required]
         });
 
+        //console.log(`value of form field: ${this.form.approval}`);
         if (!this.isAddMode) {
             this.accountService.getById(this.id)
                 .pipe(first())

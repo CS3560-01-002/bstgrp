@@ -1,4 +1,7 @@
-﻿<h1 *ngIf="isAddMode">Add User</h1>
+﻿
+
+
+<h1 *ngIf="isAddMode">Add User</h1>
 <h1 *ngIf="!isAddMode">Edit User</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-row">
@@ -36,6 +39,15 @@
                 <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
             </div>
         </div>
+    </div>
+    <div>
+        <div class="form-group col">
+            <label for="accountType">Approved: </label>
+            <input type="text" formControlName="accountType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.accountType.errors }" />
+            <div *ngIf="submitted && f.accountType.errors" class="invalid-feedback">
+                <div *ngIf="f.accountType.errors.required">Approval is required</div>
+            </div>
+        </div> 
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">

@@ -14,16 +14,22 @@ module.exports = {
     delete: _delete
 };
 
+//remember to restart to sync changes..
 async function authenticate({ username, password }) {
     const user = await db.User.scope('withHash').findOne({ where: { username } });
-
-    if (!user || !(await bcrypt.compare(password, user.hash)))
+    //console.log(user.accountPrivilege);
+   // const userType =  await db.User.findOne({ where: { accountPrivilege } }); not required since user object contains all the data associated with the username
+    if (!user || !(await bcrypt.compare(password, user.hash))) //checking to see if username and password match
         throw 'Username or password is incorrect';
+    if (user.account_type == 'applicant') //
+        throw 'You do not have the correct account privileges to access this page'; //error message handled
 
     // authentication successful
     const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
     return { ...omitHash(user.get()), token };
 }
+
+
 
 async function getAll() {
     return await db.User.findAll();

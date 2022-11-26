@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
             dob: ['', Validators.required],
             ssn: ['', Validators.required],
             drivers_license: ['', Validators.required],
-            accountPrivilege: ['applicant'],
+            account_type: ['applicant'],
             password: ['', [Validators.required, Validators.minLength(6)]],
             //phone: ['', [Validators.required, Validators.minLength(10)]],
             //email: ['', Validators.required],

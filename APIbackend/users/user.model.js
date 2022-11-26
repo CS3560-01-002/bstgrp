@@ -12,7 +12,7 @@ function model(sequelize) {
         dob: { type: DataTypes.STRING, allowNull: false },
         ssn: { type: DataTypes.STRING, allowNull: false },
         drivers_license: { type: DataTypes.STRING, allowNull: false },
-        accountPrivilege: { type: DataTypes.STRING, allowNull: true },
+        account_type: { type: DataTypes.STRING, allowNull: true },
         hash: { type: DataTypes.STRING, allowNull: false }
     };
 
