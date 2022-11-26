@@ -2,13 +2,23 @@
 
 import { AccountService } from './_services';
 import { User } from './_models';
+import { transition } from '@angular/animations';
 
 @Component({ selector: 'app', templateUrl: 'app.component.html' })
 export class AppComponent {
     user: User;
+    accountType: string;
+    adminAccess: boolean;
+
 
     constructor(private accountService: AccountService) {
         this.accountService.user.subscribe(x => this.user = x);
+        // this.user = this.accountService.userValue;
+        // this.accountType = this.user.account_type;
+        // if (this.accountType == 'admin') {
+        //     this.adminAccess = true;
+        // }
+        //console.log(`value of accountType: ${this.accountType}`);
     }
 
     logout() {

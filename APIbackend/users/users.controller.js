@@ -40,7 +40,7 @@ function registerSchema(req, res, next) {
         dob: Joi.string().required(),
         ssn: Joi.string().required(),
         drivers_license: Joi.string().required(),
-        accountPrivilege: Joi.string(), //leave it as not required for now and the
+        account_type: Joi.string(), //leave it as not required for now and the
         password: Joi.string().min(6).required()
 
     });

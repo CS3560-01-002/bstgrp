@@ -1,13 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
+import { User } from '../_models';
 
 import { ListingService } from '@app/_services/listing.service';
+import { AccountService } from '@app/_services/account.service';
 
 @Component({ templateUrl: 'listing.component.html' })
 export class ListingComponent implements OnInit {
     listings = null;
-
-    constructor(private listingService: ListingService) {}
+    user: User;
+    accountType: string;
+    adminAccess: boolean;
+    constructor(private listingService: ListingService, private accountService: AccountService) {
+        this.user = this.accountService.userValue;
+        this.accountType = this.user.account_type;
+        if (this.accountType == 'admin') {
+            this.adminAccess = true;
+        }
+    }
 
     ngOnInit() {
         this.listingService.getAll()
