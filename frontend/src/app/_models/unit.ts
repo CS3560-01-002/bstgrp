@@ -1,11 +1,14 @@
 export class Unit {
     id: number;
-    sq_footage: number;
-    montly_rate: number;
+    unit_no: number;
     bedrooms: number;
     bathrooms: number;
+    heating: string;
+    air_condition: string;
     floor: number;
-    AC: number;
-    Heat: number;
+    address: string;
+    montly_rate: number;
+    sq_footage: number;
+    availability: string;
 }
 //number is the valid datatype to be used in place of int and double as typescript doesnt differentiate between data types.

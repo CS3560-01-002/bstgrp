@@ -1,10 +1,8 @@
 export class Maintenance{
     id: string;
-    // username: string;
-    // password: string;
-    unitNo: number;
+    user_id: number;
+    unit_no: number;
     projectID: number; //generated during object creation and not explicity defined by the user
-    contactID: number; 
-    primaryPhone: number;
+    primary_phone: number;
     description: string;
 }

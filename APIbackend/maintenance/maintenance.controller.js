@@ -3,7 +3,7 @@ const router = express.Router();
 const Joi = require('joi');
 const validateRequest = require('_middleware/validate-request');
 const authorize = require('_middleware/authorize')
-const listingService = require('./listing.service');
+const maintenanceService = require('./maintenance.service');
 
 // routes
 //router.post('/authenticate', authenticateSchema, authenticate);
@@ -32,66 +32,56 @@ module.exports = router;
 
 function registerSchema(req, res, next) {
     const schema = Joi.object({
+        user_id: Joi.string().required(),
         unit_no: Joi.string().required(),
-        bedrooms: Joi.string().required(),
-        bathrooms: Joi.string().required(),
-        heating: Joi.string().required(),
-        air_condition: Joi.string().required(),
-        floor: Joi.string().required(),
-        address: Joi.string().required(),
-        monthly_rate: Joi.string().required(),
-        sq_footage: Joi.string().required(),
-        availability: Joi.string().required(),
+        project_id: Joi.string().required(),
+        description: Joi.string().required(),
+        primary_phone: Joi.string().required(),
     });
     validateRequest(req, next, schema);
 }
 
 function register(req, res, next) {
-    listingService.create(req.body)
-        .then(() => res.json({ message: 'Unit creation successful' }))
+    maintenanceService.create(req.body)
+        .then(() => res.json({ message: 'Issue creation successful' }))
         .catch(next);
 }
 
 function getAll(req, res, next) {
-    listingService.getAll()
-        .then(listings => res.json(listings))
+    maintenanceService.getAll()
+        .then(issues => res.json(issues))
         .catch(next);
 }
 
 function getCurrent(req, res, next) {
-    res.json(req.listing);
+    res.json(req.issue);
 }
 
 function getById(req, res, next) {
-    listingService.getById(req.params.id)
-        .then(listing => res.json(listing))
+    maintenanceService.getById(req.params.id)
+        .then(issue => res.json(issue))
         .catch(next);
 }
 
 function updateSchema(req, res, next) {
     const schema = Joi.object({
+        user_id: Joi.string().required(),
         unit_no: Joi.string().required(),
-        bedrooms: Joi.string().required(),
-        bathrooms: Joi.string().required(),
-        heating: Joi.string().required(),
-        air_condition: Joi.string().required(),
-        floor: Joi.string().required(),
-        address: Joi.string().required(),
-        monthly_rate: Joi.string().required(),
-        sq_footage: Joi.string().required(),
-        availability: Joi.string().required(),
+        project_id: Joi.string().required(),
+        description: Joi.string().required(),
+        primary_phone: Joi.string().required(),
     });
     validateRequest(req, next, schema);
 }
 
 function update(req, res, next) {
-    listingService.update(req.params.id, req.body)
-        .then(listing => res.json(listing))
+    maintenanceService.update(req.params.id, req.body)
+        .then(issue => res.json(issue))
         .catch(next);
 }
 
 function _delete(req, res, next) {
-    listingService.delete(req.params.id)
-        .then(() => res.json({ message: 'Unit deleted successfully' }))
+    maintenanceService.delete(req.params.id)
+        .then(() => res.json({ message: 'Issue deleted successfully' }))
         .catch(next);
 }

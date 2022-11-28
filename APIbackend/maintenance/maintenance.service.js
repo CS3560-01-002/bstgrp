@@ -24,18 +24,18 @@ module.exports = {
 // }
 
 async function getAll() {
-    return await db.Unit.findAll();
+    return await db.Maintenance.findAll();
 }
 
 async function getById(id) {
-    return await getUnit(id);
+    return await getIssue(id);
 }
 
 async function create(params) {
     // validate
-    if (await db.Unit.findOne({ where: { unit_no: params.unit_no } })) {
-        throw 'Unit Number "' + params.unit_no + '" is already taken';
-    }
+    // if (await db.Maintenance.findOne({ where: { project_id: params.project_id} })) {
+    //     throw 'Project ID "' + params.project_id + '" is already taken';
+    // }
 
     // // hash password
     // if (params.password) {
@@ -44,42 +44,39 @@ async function create(params) {
 
     //handle other logic for updating other unit fields
 
-    // save user
-    await db.Unit.create(params);
+    // save ticket
+    await db.Maintenance.create(params);
 }
 
 async function update(id, params) {
-    const unit = await getUnit(id);
+    const maintenance = await getIssue(id);
 
     // validate
-    const unitNoChanged = params.unit_no && unit.unit_no !== params.unit_no;
-    if (unitNoChanged && await db.Unit.findOne({ where: { unit_no: params.unit_no } })) {
-        throw 'Unit "' + params.unit_no + '" is already taken';
-    }
+    // const unitNoChanged = params.project_id && maintenance.project_id !== params.project_id;
+    // if (unitNoChanged && await db.Unit.findOne({ where: { unit_no: params.unit_no } })) {
+    //     throw 'Unit "' + params.unit_no + '" is already taken';
+    // } 
+    //commenting cuz we don't need to udpdate the project id or other unique fields
 
-    // hash password if it was entered
-    if (params.password) {
-        params.hash = await bcrypt.hash(params.password, 10);
-    }
 
     // copy params to user and save
-    Object.assign(unit, params);
-    await unit.save();
+    Object.assign(maintenance, params);
+    await maintenance.save();
 
     //return omitHash(unit.get());
 }
 
 async function _delete(id) {
-    const unit = await getUnit(id);
-    await unit.destroy();
+    const maintenance = await getIssue(id);
+    await maintenance.destroy();
 }
 
 // helper functions
 
-async function getUnit(id) {
-    const unit = await db.Unit.findByPk(id);
-    if (!unit) throw 'Unit not found';
-    return unit;
+async function getIssue(id) {
+    const issue = await db.Maintenance.findByPk(id);
+    if (!issue) throw 'Issue not found';
+    return issue;
 }
 
 // function omitHash(user) {
