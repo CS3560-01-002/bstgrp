@@ -25,7 +25,7 @@ export class ListingComponent implements OnInit {
             .subscribe(listings => this.listings = listings);
     }
 
-    deleteUser(id: string) {
+    deleteListing(id: string) { //function to delete user via html: is called upon button click
         const listings = this.listings.find(x => x.id === id);
         listings.isDeleting = true;
         this.listingService.delete(id)

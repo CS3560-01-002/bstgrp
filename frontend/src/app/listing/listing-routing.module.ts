@@ -4,6 +4,7 @@ import { Routes, RouterModule, RouterOutlet } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { ListingComponent } from './listing.component';
 import { AddEditComponentListings } from './add-edit.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
     {
@@ -11,7 +12,8 @@ const routes: Routes = [
         children: [
             { path: '', component: ListingComponent },
             { path: 'add', component: AddEditComponentListings },
-            { path: 'edit/:id', component: AddEditComponentListings }
+            { path: 'edit/:id', component: AddEditComponentListings },
+            { path: 'view/:id', component: ViewComponent }
         ]
     }
 ];
