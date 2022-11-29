@@ -1,11 +1,11 @@
 ﻿import { Component } from '@angular/core';
 
-import { User } from '@app/_models';
+import { user } from '@app/_models';
 import { AccountService } from '@app/_services';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
-    user: User;
+    user: user;
     accountType: string;
     adminAccess: boolean;
 

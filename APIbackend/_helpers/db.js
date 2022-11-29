@@ -15,8 +15,8 @@ async function initialize() {
 
     // connect to db
     //const sequelize = new Sequelize(database, user, password, { dialect: 'mysql' });
-    //const sequelize = new Sequelize('mysql://cpp3560:$slumL0rdM1llionair3!@edwin-dev.com:3306/cpp3560');
-    const sequelize = new Sequelize('mysql://root:Shashi@123@localhost:3306/WebAMS');
+    const sequelize = new Sequelize('mysql://cpp3560:$slumL0rdM1llionair3!@edwin-dev.com:3306/cpp3560');
+    //const sequelize = new Sequelize('mysql://root:Shashi@123@localhost:3306/WebAMS');
 
 
     // init models and add them to the exported db object

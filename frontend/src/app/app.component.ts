@@ -1,13 +1,13 @@
 ﻿import { Component } from '@angular/core';
 
 import { AccountService } from './_services';
-import { User } from './_models';
+import { user } from './_models';
 import { Role } from './_models/role';
 import { transition } from '@angular/animations';
 
 @Component({ selector: 'app', templateUrl: 'app.component.html' })
 export class AppComponent {
-    user: User;
+    user: user;
     Role = Role;
     accountType: string;
     adminAccess: boolean;
