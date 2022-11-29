@@ -7,7 +7,7 @@ import { AccountService, AlertService } from '@app/_services';
 
 @Component({ templateUrl: 'add-edit.component.html' })
 export class AddEditComponent implements OnInit {
-    form: FormGroup;
+    formAddEdit: FormGroup;
     id: string;
     isAddMode: boolean;
     loading = false;
@@ -33,7 +33,7 @@ export class AddEditComponent implements OnInit {
             passwordValidators.push(Validators.required);
         }
 
-        this.form = this.formBuilder.group({
+        this.formAddEdit = this.formBuilder.group({
             first_name: ['', Validators.required],
             last_name: ['', Validators.required],
             username: ['', Validators.required],
@@ -46,12 +46,12 @@ export class AddEditComponent implements OnInit {
         if (!this.isAddMode) {
             this.accountService.getById(this.id)
                 .pipe(first())
-                .subscribe(x => this.form.patchValue(x));
+                .subscribe(x => this.formAddEdit.patchValue(x));
         }
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+    get f() { return this.formAddEdit.controls; }
 
     onSubmit() {
         this.submitted = true;
@@ -60,7 +60,7 @@ export class AddEditComponent implements OnInit {
         this.alertService.clear();
 
         // stop here if form is invalid
-        if (this.form.invalid) {
+        if (this.formAddEdit.invalid) {
             return;
         }
 
@@ -73,7 +73,7 @@ export class AddEditComponent implements OnInit {
     }
 
     private createUser() {
-        this.accountService.register(this.form.value)
+        this.accountService.register(this.formAddEdit.value)
             .pipe(first())
             .subscribe({
                 next: () => {
@@ -88,8 +88,8 @@ export class AddEditComponent implements OnInit {
     }
 
     private updateUser() {
-        console.log(this.form.value);
-        this.accountService.update(this.id, this.form.value)
+        console.log(this.formAddEdit.value);
+        this.accountService.update(this.id, this.formAddEdit.value)
             .pipe(first())
             .subscribe({
                 next: () => {

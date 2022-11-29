@@ -13,7 +13,7 @@ const maintenanceModule = () => import('./maintenance/maintenance.module').then(
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard],  data: { roles: [Role.Admin] } },
+    { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard],  data: { roles: [Role.Admin] }},
     { path: 'account', loadChildren: accountModule },
     { path: 'listings', loadChildren: listingsModule},
     { path: 'maintenance', loadChildren: maintenanceModule},

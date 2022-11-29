@@ -3,7 +3,7 @@
 
 <h1 *ngIf="isAddMode">Add User</h1>
 <h1 *ngIf="!isAddMode">Edit User</h1>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="formAddEdit" (ngSubmit)="onSubmit()">
     <div class="form-row">
         <div class="form-group col">
             <label for="first_name">First Name</label>
@@ -42,7 +42,7 @@
     </div>
     <div>
         <div class="form-group col">
-            <label for="account_type">Approved: </label>
+            <label for="account_type">Account Status: </label>
             <input type="text" formControlName="account_type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.account_type.errors }" />
             <div *ngIf="submitted && f.account_type.errors" class="invalid-feedback">
                 <div *ngIf="f.account_type.errors.required">Approval is required</div>
