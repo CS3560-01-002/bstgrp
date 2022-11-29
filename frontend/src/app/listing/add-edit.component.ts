@@ -35,13 +35,15 @@ export class AddEditComponentListings implements OnInit {
         }
 
         this.formListing = this.formBuilder.group({
-            unitNo: ['', Validators.required],
+            unit_no: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
-            airCondition: ['', Validators.required],
+            air_condition: ['', Validators.required],
             heating: ['', Validators.required],
+            floor: ['', Validators.required],
             address: ['', Validators.required],
-            cost: ['', Validators.required],
+            monthly_rate: ['', Validators.required],
+            sq_footage: ['', Validators.required],
             availability: ['', Validators.required],
 
         });

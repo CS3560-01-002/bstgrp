@@ -70,16 +70,16 @@ function getById(req, res, next) {
 
 function updateSchema(req, res, next) {
     const schema = Joi.object({
-        unit_no: Joi.string().required(),
-        bedrooms: Joi.string().required(),
-        bathrooms: Joi.string().required(),
-        heating: Joi.string().required(),
-        air_condition: Joi.string().required(),
-        floor: Joi.string().required(),
-        address: Joi.string().required(),
-        monthly_rate: Joi.string().required(),
-        sq_footage: Joi.string().required(),
-        availability: Joi.string().required(),
+        unit_no: Joi.string().empty(''),
+        bedrooms: Joi.string().empty(''),
+        bathrooms: Joi.string().empty(''),
+        heating: Joi.string().empty(''),
+        air_condition: Joi.string().empty(''),
+        floor: Joi.string().empty(''),
+        address: Joi.string().empty(''),
+        monthly_rate: Joi.string().empty(''),
+        sq_footage: Joi.string().empty(''),
+        availability: Joi.string().empty(''),
     });
     validateRequest(req, next, schema);
 }

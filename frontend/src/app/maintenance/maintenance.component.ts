@@ -17,6 +17,7 @@ export class MaintenanceComponent implements OnInit {
     formMaintenance: FormGroup;
     loading = false;
     submitted = false;
+    proj_id: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,10 +28,12 @@ export class MaintenanceComponent implements OnInit {
     ) { }
 
     ngOnInit() { //initialization of the required variables/fields
+        this.proj_id =  (Math.floor(Math.random() * (100 - 1 + 1)) + 1).toString(); 
+        //this.proj_id = this.proj_id
         this.formMaintenance = this.formBuilder.group({
-            unit_no: ['', Validators.required], //associated tenant username
-            user_id: ['1', Validators.required], //associated tenant username
-            project_id: ['1', Validators.required], //associated tenant username
+            unit_no: ['', Validators.required], 
+            user_id: ['1', Validators.required], 
+            project_id: [this.proj_id, Validators.required], 
             description: ['', Validators.required], 
             primary_phone: ['', Validators.required],
         });
