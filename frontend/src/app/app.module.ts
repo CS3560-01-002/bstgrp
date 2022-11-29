@@ -15,6 +15,7 @@ import { HomeComponent } from './home';
 import { LeaseComponent } from './lease/lease.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { RouterModule } from '@angular/router';;
+//import { ViewComponent } from './listings/view/view.component';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { RouterModule } from '@angular/router';;
         AlertComponent,
         HomeComponent,
         LeaseComponent ,
-        MaintenanceComponent] ,
+        MaintenanceComponent],
+       // ViewComponent ,
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

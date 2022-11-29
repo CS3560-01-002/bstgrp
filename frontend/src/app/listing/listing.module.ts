@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout.component';
 //import { AddEditListingComponent } from './add-edit-listing.component';
 import { AddEditComponentListings } from '@app/listing/add-edit.component';
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AddEditComponentListings } from '@app/listing/add-edit.component';
   LayoutComponent,
     //AddEditListingComponent,
   AddEditComponentListings,
+    ViewComponent,
 ],
   imports: [
     CommonModule,

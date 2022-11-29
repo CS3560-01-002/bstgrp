@@ -40,7 +40,7 @@ function registerSchema(req, res, next) {
         dob: Joi.string().required(),
         ssn: Joi.string().required(),
         drivers_license: Joi.string().required(),
-        account_type: Joi.string(), //leave it as not required for now and the
+        account_type: Joi.string().required(), //leave it as not required for now and the
         password: Joi.string().min(6).required()
 
     });
@@ -76,9 +76,15 @@ function getById(req, res, next) {
 
 function updateSchema(req, res, next) {
     const schema = Joi.object({
-        firstName: Joi.string().empty(''),
-        lastName: Joi.string().empty(''),
+        first_name: Joi.string().empty(''),
+        middle_name: Joi.string().empty(''),
+        last_name: Joi.string().empty(''),
         username: Joi.string().empty(''),
+        title: Joi.string().empty(''),
+        dob: Joi.string().empty(''),
+        ssn: Joi.string().empty(''),
+        drivers_license: Joi.string().empty(''),
+        account_type: Joi.string().empty(''),
         password: Joi.string().min(6).empty('')
     });
     validateRequest(req, next, schema);

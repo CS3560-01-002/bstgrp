@@ -23,7 +23,7 @@ export class AddEditComponentListings implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.id = this.route.snapshot.params['id'];
+        this.id = this.route.snapshot.params['id']; //capturing the listings id from the url endpoint
         console.log(`value of id: ${this.id}`); 
         this.isAddMode = !this.id; //gets the userid and then negates the string id value to get a boolean value of false to indicate that the user already exists and only needs to be edited
         //this.isAddMode = true; changing this to true clears the name and other details for user
@@ -35,13 +35,15 @@ export class AddEditComponentListings implements OnInit {
         }
 
         this.formListing = this.formBuilder.group({
-            unitNo: ['', Validators.required],
+            unit_no: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
-            airCondition: ['', Validators.required],
+            air_condition: ['', Validators.required],
             heating: ['', Validators.required],
+            floor: ['', Validators.required],
             address: ['', Validators.required],
-            cost: ['', Validators.required],
+            monthly_rate: ['', Validators.required],
+            sq_footage: ['', Validators.required],
             availability: ['', Validators.required],
 
         });

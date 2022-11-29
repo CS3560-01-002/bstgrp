@@ -88,6 +88,7 @@ export class AddEditComponent implements OnInit {
     }
 
     private updateUser() {
+        console.log(this.form.value);
         this.accountService.update(this.id, this.form.value)
             .pipe(first())
             .subscribe({

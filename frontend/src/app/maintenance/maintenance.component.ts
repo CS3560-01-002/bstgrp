@@ -14,9 +14,10 @@ import { AlertService } from '@app/_services';
 export class MaintenanceComponent implements OnInit {
 
 
-    form: FormGroup;
+    formMaintenance: FormGroup;
     loading = false;
     submitted = false;
+    proj_id: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,15 +28,26 @@ export class MaintenanceComponent implements OnInit {
     ) { }
 
     ngOnInit() { //initialization of the required variables/fields
-        this.form = this.formBuilder.group({
-            username: ['', Validators.required], //associated tenant username
+        this.proj_id =  (Math.floor(Math.random() * (100 - 1 + 1)) + 1).toString(); 
+        //this.proj_id = this.proj_id
+        this.formMaintenance = this.formBuilder.group({
+            unit_no: ['', Validators.required], 
+            user_id: ['1', Validators.required], 
+            project_id: [this.proj_id, Validators.required], 
             description: ['', Validators.required], 
-            phoneNo: ['', Validators.required],
+            primary_phone: ['', Validators.required],
         });
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+    get f() { return this.formMaintenance.controls; }
+
+
+    getRandomInt(min, max) : number{ 
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; 
+    }
 
     onSubmit() {
         this.submitted = true;
@@ -44,17 +56,17 @@ export class MaintenanceComponent implements OnInit {
         this.alertService.clear();
 
         // stop here if form is invalid
-        if (this.form.invalid) {
+        if (this.formMaintenance.invalid) {
             return;
         }
 
         this.loading = true;
-        this.maintenanceService.register(this.form.value)
+        this.maintenanceService.register(this.formMaintenance.value)
             .pipe(first())
             .subscribe({
                 next: () => {
                     this.alertService.success('Ticket Submission successful', { keepAfterRouteChange: true });
-                    this.router.navigate(['../login'], { relativeTo: this.route });
+                    this.router.navigate(['../listing'], { relativeTo: this.route });
                 },
                 error: error => {
                     this.alertService.error(error);
