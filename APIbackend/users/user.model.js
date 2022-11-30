@@ -27,6 +27,6 @@ function model(sequelize) {
         }
     };
 
-    return sequelize.define('User', attributes, options); //changine the string value is the same as
+    return sequelize.define('user', attributes, options); //changine the string value is the same as
     //changing the table reference value for accessing the data.
 }
