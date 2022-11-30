@@ -38,6 +38,10 @@ export class AddEditComponent implements OnInit {
             last_name: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', passwordValidators],
+            title: ['', Validators.required],
+            dob: ['', Validators.required],
+            ssn: ['', Validators.required],
+            drivers_license: ['', Validators.required],
             //approval: ['hello', Validators.required]
             account_type: ['', Validators.required]
         });
