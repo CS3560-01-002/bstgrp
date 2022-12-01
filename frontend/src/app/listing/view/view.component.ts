@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
  import { first } from 'rxjs/operators';
 // import { User } from '../_models';
 import { ListingService } from '@app/_services/listing.service';
+import { Unit } from '@app/_models/unit';
 
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -14,10 +15,13 @@ export class ViewComponent implements OnInit {
   //define the listings here and show the remainng attrs
 
 
+    //listing: Unit;
+    //listing: Unit;
     listing = null;
-    //user: User;
+    unit = null;
     accountType: string;
     adminAccess: boolean;
+    //dataReady: boolean;
     id: string;
 
     constructor(
@@ -31,9 +35,8 @@ export class ViewComponent implements OnInit {
 
     ngOnInit() {
       this.id = this.route.snapshot.params['id']; //capturing the listings id from the url endpoint
-      this.listingService.getById(this.id)
-          .pipe(first())
-          .subscribe(listing => this.listing = listing);
+      this.listingService.getById(this.id).pipe(first()).subscribe(unit => this.listing = unit);
+         
     }
 
     // deleteListing(id: string) { //function to delete user via html: is called upon button click

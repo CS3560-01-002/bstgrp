@@ -1,12 +1,15 @@
-<p>
-    listing details!
-</p>
+<h2>
+    Listing Details:
+</h2>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th style="width: 30%">Unit No</th>
-            <th style="width: 30%">Price</th>
-            <th style="width: 30%">Availability</th>
+            <th style="width: 20%">Unit No</th>
+            <th style="width: 20%">Price</th>
+            <th style="width: 20%">Availability</th>
+            <th style="width: 20%">Heating</th>
+            <th style="width: 20%">Air Condition</th>
+            <th style="width: 20%">Area</th>
             <th style="width: 10%"></th>
         </tr>
     </thead>
@@ -14,6 +17,12 @@
         <td>{{listing.unit_no}}</td>
         <td>{{listing.monthly_rate}}</td>
         <td>{{listing.availability}}</td>
+        <td>{{listing.heating}}</td>
+        <td>{{listing.air_condition}}</td>
+        <td>{{listing.sq_footage}}</td>
+
+
+
         <!-- <tr *ngFor="let listing of listings">
             <td>{{listing.unit_no}}</td>
             <td>{{listing.monthly_rate}}</td>
@@ -27,6 +36,8 @@
                 </button>
             </td> 
         </tr> -->
+
+
         <tr *ngIf="!listing">
             <td colspan="4" class="text-center">
                 <span class="spinner-border spinner-border-lg align-center"></span>

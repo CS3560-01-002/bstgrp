@@ -3,15 +3,17 @@ import { Routes, RouterModule, RouterOutlet } from '@angular/router';
 
 //import { LayoutComponent } from './layout.component';
 import { MaintenanceComponent } from './maintenance.component';
+import { ViewMaintenanceComponent } from './view/view.component'; 
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
     {
-        path: '', component: MaintenanceComponent,
-        // children: [
-        //     { path: '', component: MaintenanceComponent },
-        //     //{ path: 'add', component: AddEditComponentListings },
-        //     //{ path: 'edit/:id', component: AddEditComponentListings }
-        // ]
+        path: '', component: LayoutComponent,
+        children: [
+            { path: '', component: MaintenanceComponent }, //route to get all maintenance tickets
+            { path: 'issues', component:  ViewMaintenanceComponent }
+            //{ path: 'edit/:id', component: AddEditComponentListings }
+        ]
     }
 ];
 

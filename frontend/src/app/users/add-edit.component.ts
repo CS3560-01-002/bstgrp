@@ -38,8 +38,12 @@ export class AddEditComponent implements OnInit {
             last_name: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', passwordValidators],
-            //approval: ['hello', Validators.required]
+            title: ['', Validators.required],
+            dob: ['', Validators.required],
+            ssn: ['', Validators.required],
+            drivers_license: ['', Validators.required],
             account_type: ['', Validators.required]
+
         });
 
         //console.log(`value of form field: ${this.form.approval}`);

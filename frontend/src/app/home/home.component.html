@@ -3,5 +3,6 @@
         <h1>Hi {{user.first_name}}!</h1>
         <p>You're logged into WebAMS!</p>
         <p><a *ngIf="this.adminAccess" routerLink="/users">Manage Users</a></p>
+        <p><a *ngIf="this.adminAccess" routerLink="/maintenance/issues">Manage Issues</a></p>
     </div>
 </div>
