@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
 const validateRequest = require('_middleware/validate-request');
@@ -33,7 +33,7 @@ function authenticate(req, res, next) {
 function registerSchema(req, res, next) {
     const schema = Joi.object({
         first_name: Joi.string().required(),
-        middle_name: Joi.string(),
+        middle_name: Joi.string().optional().allow(''),
         last_name: Joi.string().required(),
         username: Joi.string().required(),
         title: Joi.string().required(),
