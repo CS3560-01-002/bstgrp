@@ -17,7 +17,7 @@ export class ViewComponent implements OnInit {
 
     //listing: Unit;
     //listing: Unit;
-    listing = null;
+    listing: Unit;
     unit = null;
     accountType: string;
     adminAccess: boolean;
@@ -39,23 +39,5 @@ export class ViewComponent implements OnInit {
          
     }
 
-    // deleteListing(id: string) { //function to delete user via html: is called upon button click
-    //     const listings = this.listings.find(x => x.id === id);
-    //     listings.isDeleting = true;
-    //     this.listingService.delete(id)
-    //         .pipe(first())
-    //         .subscribe(() => this.listings = this.listings.filter(x => x.id !== id));
-    // }
-
-//  constructor(
-//         private formBuilder: FormBuilder,
-//         private route: ActivatedRoute,
-//         private router: Router,
-//         private listingService: ListingService,
-//         private alertService: AlertService
-//     ) {}
-
-//     ngOnInit() {
-//         this.id = this.route.snapshot.params['id']; //capturing the listings id from the url endpoint
-
+    
 }

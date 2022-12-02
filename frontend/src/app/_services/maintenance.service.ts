@@ -29,7 +29,7 @@ export class MaintenanceService {
     }
 
     getAll() { //call maintenance api to get list of all jobs
-        return this.http.get<Maintenance[]>(`${environment.apiUrl}/maintenance/jobs`);
+        return this.http.get<Maintenance[]>(`${environment.apiUrl}/maintenance/jobs`); //API routes defined to communicate with the backend Node Server
     }
 
     getById(id: string) { //helper function to get maintenance job by id

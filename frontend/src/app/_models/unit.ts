@@ -7,7 +7,7 @@ export class Unit {
     air_condition: string;
     floor: number;
     address: string;
-    montly_rate: number;
+    monthly_rate: number;
     sq_footage: number;
     availability: string;
 }

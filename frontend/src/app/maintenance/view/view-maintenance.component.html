@@ -1,1 +1,39 @@
-<p>view works!</p>
+<div class="p-4">
+
+    <h1>Issues</h1>
+    
+    
+    <div class="mt-30">
+    <a routerLink="add" class="btn btn-sm btn-success mb-2" >Add Issue</a>
+    <table class="table table-bordered table-striped table-dark table-hover">
+        <thead>
+            <tr>
+                <th style="width: 30%">Issue #</th>
+                <th style="width: 30%">Description</th>
+                <th style="width: 30%">Unit #</th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let issue of issues">
+                <td>{{issue.project_id}}</td>
+                <td>{{issue.description}}</td>
+                <td>{{issue.unit_no}}</td>
+                <!-- <td style="white-space: nowrap">
+                    <a routerLink="view/{{listing.id}}" class="btn btn-sm btn-primary mr-1" >Details</a>
+                     <a routerLink="edit/{{listing.id}}" class="btn btn-sm btn-primary mr-1" *ngIf="this.adminAccess">Edit</a> 
+                    <button (click)="deleteListing(listing.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="listing.isDeleting" *ngIf="this.adminAccess">
+                        <span *ngIf="listing.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!listing.isDeleting">Delete</span>
+                    </button>
+                </td> -->
+            </tr>
+            <tr *ngIf="!issues">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>

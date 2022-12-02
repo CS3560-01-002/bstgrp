@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// api routes
-app.use('/users', require('./users/users.controller'));
+// listens for api routes defined in the frontend 
+app.use('/users', require('./users/users.controller')); //calls the backend controller function for the users
 app.use('/listings', require('./listings/listings.controller'));
 app.use('/maintenance', require('./maintenance/maintenance.controller'));
 
