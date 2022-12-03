@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home';
+import { HomeComponent } from './home'; //contains index file which exports the class defined in the home.component.ts file
+import  { PublicHomeComponent } from './public-home';
 import { AuthGuard } from './_helpers';
 import { Role } from './_models/role';
 
@@ -15,7 +16,8 @@ const publicListingsModule = () => import('./public-listings/public-listings.mod
 
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: HomeComponent, canActivate: [AuthGuard] }, 
+    { path: 'home', component: PublicHomeComponent},
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard],  data: { roles: [Role.Admin] }},
     { path: 'account', loadChildren: accountModule },
     { path: 'listings', loadChildren: listingsModule},
