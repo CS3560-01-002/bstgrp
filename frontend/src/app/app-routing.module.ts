@@ -18,7 +18,8 @@ const routes: Routes = [
     { path: 'account', loadChildren: accountModule },
     { path: 'listings', loadChildren: listingsModule},
     { path: 'maintenance', loadChildren: maintenanceModule},
-    { path: 'lease', loadChildren: leaseModule, canActivate: [AuthGuard], data: { roles: [Role.Tenant]}},
+    //{ path: 'lease', loadChildren: leaseModule, canActivate: [AuthGuard], data: { roles: [Role.Tenant]}},
+    { path: 'lease', loadChildren: leaseModule},
     //might have to add listings here and import the listing module
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

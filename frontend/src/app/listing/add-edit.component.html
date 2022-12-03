@@ -12,6 +12,7 @@
         <div class="form-group col">
             <label for="bedrooms">Bedroom</label>
             <input type="text" formControlName="bedrooms" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bedrooms.errors }" />
+            <!-- <div *ngIf="submitted && f.bedrooms.errors" class="invalid-feedback"> the 'f' call here is referencing the function defined in the typescript file -->
             <div *ngIf="submitted && f.bedrooms.errors" class="invalid-feedback">
                 <div *ngIf="f.bedrooms.errors.required">Bedroom is required</div>
             </div>
@@ -26,19 +27,41 @@
     </div>
     <div class="form-row">
         <div class="form-group col">
+            <label>Air Condition</label>
+            <select formControlName="air_condition" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.air_condition.errors }">
+                <option value=""></option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+            <div *ngIf="submitted && f.air_condition.errors" class="invalid-feedback">
+                <div *ngIf="f.air_condition.errors.required">A/C status required</div>
+            </div>
+        </div>
+        <!-- <div class="form-group col">
             <label for="air_condition">Air-Condition</label>
             <input type="text" formControlName="air_condition" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.air_condition.errors }" />
             <div *ngIf="submitted && f.air_condition.errors" class="invalid-feedback">
                 <div *ngIf="f.air_condition.errors.required">Air-Condition status is required</div>
             </div>
-        </div>
+        </div> -->
         <div class="form-group col">
+            <label>Heating</label>
+            <select formControlName="heating" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.heating.errors }">
+                <option value=""></option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+            <div *ngIf="submitted && f.heating.errors" class="invalid-feedback">
+                <div *ngIf="f.heating.errors.required">Heating status required</div>
+            </div>
+        </div> 
+        <!-- <div class="form-group col">
             <label for="heating">Heating</label>
             <input type="text" formControlName="heating" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.heating.errors }" />
             <div *ngIf="submitted && f.heating.errors" class="invalid-feedback">
                 <div *ngIf="f.heating.errors.required">Heating status is required</div>
             </div>
-        </div>
+        </div> -->
         <div class="form-group col">
             <label for="floor">Floor</label>
             <input type="text" formControlName="floor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.floor.errors }" />
@@ -69,12 +92,23 @@
         </div>
 
         <div class="form-group col">
+            <label>Availability</label>
+            <select formControlName="availability" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.availability.errors }">
+                <option value=""></option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+            <div *ngIf="submitted && f.availability.errors" class="invalid-feedback">
+                <div *ngIf="f.availability.errors.required">Availability status required</div>
+            </div>
+        </div> 
+        <!-- <div class="form-group col">
             <label for="availability">Availability</label>
             <input type="text" formControlName="availability" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.availability.errors }" />
             <div *ngIf="submitted && f.availability.errors" class="invalid-feedback">
                 <div *ngIf="f.availability.errors.required">Availability status is required</div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">

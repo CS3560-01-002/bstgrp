@@ -8,11 +8,11 @@ const maintenanceService = require('./maintenance.service');
 // routes
 //router.post('/authenticate', authenticateSchema, authenticate);
 router.post('/register', registerSchema, register);
-router.get('/', authorize(), getAll);
-router.get('/current', authorize(), getCurrent);
-router.get('/:id', authorize(), getById);
-router.put('/:id', authorize(), updateSchema, update);
-router.delete('/:id', authorize(), _delete);
+router.get('/jobs', authorize(), getAll);
+router.get('/current', authorize(), getCurrent); //not implemented in the maintenance service (frontend) yet 
+router.get('/jobs/:id', authorize(), getById);
+router.put('/jobs/:id', authorize(), updateSchema, update);
+router.delete('jobs/:id', authorize(), _delete);
 
 module.exports = router;
 
@@ -63,7 +63,7 @@ function getById(req, res, next) {
         .catch(next);
 }
 
-function updateSchema(req, res, next) {
+function updateSchema(req, res, next) { //implement edit maintenance ticket later
     const schema = Joi.object({
         user_id: Joi.string().required(),
         unit_no: Joi.string().required(),

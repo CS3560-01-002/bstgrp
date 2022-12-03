@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { MaintenanceService } from '@app/_services/maintenance.service';
 import { AlertService } from '@app/_services';
+import { User } from '@app/_models';
+import { AccountService } from '@app/_services'; //used to get the current user's account details
 
 @Component({
   selector: 'app-maintenance',
@@ -18,21 +20,29 @@ export class MaintenanceComponent implements OnInit {
     loading = false;
     submitted = false;
     proj_id: string;
+    user: User;
+    userId: string;
 
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
         private maintenanceService: MaintenanceService, //call maintenance service to access API endpoints
+        private accountService: AccountService, //call account service to access API endpoints
         private alertService: AlertService
-    ) { }
+    ) { 
+
+        this.user = this.accountService.userValue;
+        this.userId = this.user.username;
+    }
 
     ngOnInit() { //initialization of the required variables/fields
         this.proj_id =  (Math.floor(Math.random() * (100 - 1 + 1)) + 1).toString(); 
         //this.proj_id = this.proj_id
         this.formMaintenance = this.formBuilder.group({
             unit_no: ['', Validators.required], 
-            user_id: ['1', Validators.required], 
+            //user_id: ['1', Validators.required], 
+            user_id: this.userId,
             project_id: [this.proj_id, Validators.required], 
             description: ['', Validators.required], 
             primary_phone: ['', Validators.required],
@@ -43,11 +53,11 @@ export class MaintenanceComponent implements OnInit {
     get f() { return this.formMaintenance.controls; }
 
 
-    getRandomInt(min, max) : number{ 
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min; 
-    }
+    // getRandomInt(min, max) : number{ 
+    //     min = Math.ceil(min);
+    //     max = Math.floor(max);
+    //     return Math.floor(Math.random() * (max - min + 1)) + min; 
+    // }
 
     onSubmit() {
         this.submitted = true;
