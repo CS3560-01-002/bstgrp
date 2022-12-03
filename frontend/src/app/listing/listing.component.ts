@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { User } from '../_models';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListingService } from '@app/_services/listing.service';
 import { AccountService } from '@app/_services/account.service';
 
@@ -11,7 +11,13 @@ export class ListingComponent implements OnInit {
     user: User;
     accountType: string;
     adminAccess: boolean;
-    constructor(private listingService: ListingService, private accountService: AccountService) {
+    formSearch: FormGroup;
+
+    constructor(
+        private listingService: ListingService, 
+        private accountService: AccountService,
+        private formBuilder: FormBuilder,
+        ) {
         this.user = this.accountService.userValue;
         this.accountType = this.user.account_type;
         if (this.accountType == 'admin') {
@@ -23,6 +29,41 @@ export class ListingComponent implements OnInit {
         this.listingService.getAll()
             .pipe(first())
             .subscribe(listings => this.listings = listings);
+
+        this.formSearch = this.formBuilder.group({
+            unit_no: ['', Validators.required],
+            // bedrooms: ['', Validators.required],
+            // bathrooms: ['', Validators.required],
+            // air_condition: ['', Validators.required],
+            // heating: ['', Validators.required],
+            // floor: ['', Validators.required],
+            // address: ['', Validators.required],
+            // monthly_rate: ['', Validators.required],
+            // sq_footage: ['', Validators.required],
+            // availability: ['', Validators.required],
+
+        });
+    
+    }
+
+    onSubmit() {
+        console.log(this.formSearch.value);
+        // this.submitted = true;
+
+        // // reset alerts on submit
+        // this.alertService.clear();
+
+        // // stop here if form is invalid
+        // if (this.formListing.invalid) {
+        //     return;
+        // }
+
+        // this.loading = true;
+        // if (this.isAddMode) {
+        //     this.createUnit();
+        // } else {
+        //     this.updateUnit();
+        // }
     }
 
     deleteListing(id: string) { //function to delete user via html: is called upon button click

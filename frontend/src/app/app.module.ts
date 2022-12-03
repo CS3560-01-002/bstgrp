@@ -14,7 +14,8 @@ import { HomeComponent } from './home';
 //newly generated components get added here
 import { LeaseComponent } from './lease/lease.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';;
+import { PublicListingsComponent } from './public-listings/public-listings.component'
 //import { SingleViewComponent } from './listings/single-view/single-view.component';
 //import { ViewComponent } from './listings/view/view.component';
 
@@ -31,7 +32,8 @@ import { RouterModule } from '@angular/router';
         AlertComponent,
         HomeComponent,
         LeaseComponent ,
-        MaintenanceComponent],
+        MaintenanceComponent,
+        PublicListingsComponent],
        // SingleViewComponent,
        // ViewComponent ,
     providers: [

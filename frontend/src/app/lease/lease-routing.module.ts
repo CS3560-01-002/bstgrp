@@ -6,7 +6,7 @@ const routes: Routes = [
     {
         path: '', component: LeaseComponent,
         // children: [
-        //     { path: '', component: ListingComponent },
+        //     { path: '', component: LeaseComponent },
         //     { path: 'add', component: AddEditComponentListings },
         //     { path: 'edit/:id', component: AddEditComponentListings },
         //     { path: 'view/:id', component: ViewComponent }
