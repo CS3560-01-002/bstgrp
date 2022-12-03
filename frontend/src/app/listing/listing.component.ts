@@ -30,7 +30,7 @@ export class ListingComponent implements OnInit {
             .pipe(first())
             .subscribe(listings => this.listings = listings);
 
-        this.formSearch = this.formBuilder.group({
+        this.formSearch = this.formBuilder.group({ //might be rendered redundant based on the example implementation of the search bar example
             unit_no: ['', Validators.required],
             // bedrooms: ['', Validators.required],
             // bathrooms: ['', Validators.required],

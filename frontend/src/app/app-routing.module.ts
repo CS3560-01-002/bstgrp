@@ -11,12 +11,15 @@ const usersModule = () => import('./users/users.module').then(x => x.UsersModule
 const listingsModule = () => import('./listing/listing.module').then(x => x.ListingModule);
 const maintenanceModule = () => import('./maintenance/maintenance.module').then(x => x.MaintenanceModule);
 const leaseModule = () => import('./lease/lease.module').then(x => x.LeaseModule);
+const publicListingsModule = () => import('./public-listings/public-listings.module').then(x => x.PublicListingsModule);
+
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard],  data: { roles: [Role.Admin] }},
     { path: 'account', loadChildren: accountModule },
     { path: 'listings', loadChildren: listingsModule},
+    { path: 'public-listings', loadChildren: publicListingsModule},
     { path: 'maintenance', loadChildren: maintenanceModule},
     //{ path: 'lease', loadChildren: leaseModule, canActivate: [AuthGuard], data: { roles: [Role.Tenant]}},
     { path: 'lease', loadChildren: leaseModule},
