@@ -1,4 +1,4 @@
-export class financial {
+export class Financial {
     id: number;
     payment_history: number;
     bills_due: number;

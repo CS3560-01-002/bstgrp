@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { application } from '@app/_models/application';
+import { Application } from '@app/_models/application';
 import { environment } from '@environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,31 +12,32 @@ import { map } from 'rxjs/operators';
 export class ApplicationService {
 
 
-  private applicationSubject: BehaviorSubject<application>; //replace other utilizations of this var 
-  public application: Observable<application>;
+  private applicationSubject: BehaviorSubject<Application>; //replace other utilizations of this var 
+  public application: Observable<Application>;
 
   constructor(
       private router: Router, //implement later to navigate out of the page
       private http: HttpClient
   ) {
-      this.applicationSubject = new BehaviorSubject<application>(JSON.parse(localStorage.getItem('application'))); //storing new application objects in local browser storage
+      this.applicationSubject = new BehaviorSubject<Application>(JSON.parse(localStorage.getItem('application'))); //storing new application objects in local browser storage
       this.application = this.applicationSubject.asObservable();
   }
 
-  public get applicationValue(): application { //getter helper method to return the values of the application 
+  public get applicationValue(): Application { //getter helper method to return the values of the application 
       return this.applicationSubject.value;
   }
 
-  register(application: application) { //CRUD: create a new application 
-      return this.http.post(`${environment.apiUrl}/application/register`, application);
+  register(application: Application) { //CRUD: create a new application 
+    console.log('application register function', application)  
+    return this.http.post(`${environment.apiUrl}/application/register`, application);
   }
 
   getAll() { // to get list of all applications
-      return this.http.get<application[]>(`${environment.apiUrl}/applications`);
+      return this.http.get<Application[]>(`${environment.apiUrl}/applications`);
   }
 
   getById(id: string) { //helper function to get application by id
-      return this.http.get<application>(`${environment.apiUrl}/applications/${id}`);
+      return this.http.get<Application>(`${environment.apiUrl}/applications/${id}`);
   }
 
   update(id, params) { //CRUD: update function used in editing application info 

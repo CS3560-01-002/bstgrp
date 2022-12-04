@@ -9,6 +9,7 @@ import {ApplicationService} from '../_services/application.service';
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
+  formGroup: FormGroup;
   formApplication: FormGroup;
   loading = false;
   submitted = false;
@@ -45,8 +46,14 @@ export class RegisterComponent implements OnInit {
       employer: ['', Validators.required],
       house_mate_count: ['', Validators.required],
       vehicle: ['', Validators.required],
-      applicant_id: [''],
+      applicant_id: ['1235'],
     });
+
+    this.formGroup = this.formBuilder.group(
+        {
+
+        }
+    );
   }
 
   // convenience getter for easy access to form fields
@@ -68,7 +75,7 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
+    console.log(this.formApplication.value);
     this.loading = true;
     this.applicationService
     .register(this.formApplication.value);

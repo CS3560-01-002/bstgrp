@@ -1,4 +1,4 @@
-export class application {
+export class Application {
     id: number;
     credit_score: number;
     income: number;

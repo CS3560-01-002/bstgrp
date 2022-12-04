@@ -1,4 +1,4 @@
-export class lease {
+export class Lease {
     id: number;
     term: number;
     approved_by: string;
