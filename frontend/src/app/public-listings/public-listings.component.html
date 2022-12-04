@@ -20,12 +20,20 @@
                 <td>{{listing.monthly_rate}}</td>
                 <td>{{listing.availability}}</td>
                 <td style="white-space: nowrap">
+
                     <a routerLink="listings/view/{{listing.id}}" class="btn btn-sm btn-primary mr-1" >Details</a>
                     <!-- <a routerLink="edit/{{listing.id}}" class="btn btn-sm btn-primary mr-1" *ngIf="this.adminAccess">Edit</a>
                     <button (click)="deleteListing(listing.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="listing.isDeleting" *ngIf="this.adminAccess">
                         <span *ngIf="listing.isDeleting" class="spinner-border spinner-border-sm"></span>
                         <span *ngIf="!listing.isDeleting">Delete</span>
                     </button> --> 
+
+                    <!-- <a routerLink="view/{{listing.id}}" class="btn btn-sm btn-primary mr-1" >Details</a>
+                    <a routerLink="edit/{{listing.id}}" class="btn btn-sm btn-primary mr-1" *ngIf="this.adminAccess">Edit</a>
+                    <button (click)="deleteListing(listing.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="listing.isDeleting" *ngIf="this.adminAccess">
+                        <span *ngIf="listing.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!listing.isDeleting">Delete</span>
+                    </button> -->
                 </td>
             </tr>
             <tr *ngIf="!publicListings">

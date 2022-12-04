@@ -3,7 +3,7 @@
 // const Joi = require('joi');
 // const validateRequest = require('_middleware/validate-request');
 // const authorize = require('_middleware/authorize')
-// const listingService = require('./lease.service');
+// const listingService = require('./listing.service');
 
 // // routes
 // //router.post('/authenticate', authenticateSchema, authenticate);

@@ -11,6 +11,7 @@ router.post('/register', registerSchema, register);
 router.get('/', authorize(), getAll);
 router.get('/public', getAll);
 router.get('/public/:id', getById);
+
 router.get('/current', authorize(), getCurrent);
 router.get('/:id', authorize(), getById);
 router.put('/:id', authorize(), updateSchema, update);
