@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '@app/_services';
+import { AccountService, AlertService} from '@app/_services';
+import {ApplicationService} from '../_services/application.service';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
+    private applicationService: ApplicationService,
     private alertService: AlertService
   ) {}
 
@@ -36,20 +38,24 @@ export class RegisterComponent implements OnInit {
       //email: ['', Validators.required],
     });
 
-    this.formApplication = this.formBuilder.group({
-      credit_score: ['', Validators.required],
-      income: ['', Validators.required],
-      unit_id: ['', Validators.required],
-      employer: ['', Validators.required],
-      house_mate_count: ['', Validators.required],
-      vehicle: ['', Validators.required],
-      applicant_id: ['', Validators.required],
-    });
+    // this.formApplication = this.formBuilder.group({
+    //   credit_score: ['', Validators.required],
+    //   income: ['', Validators.required],
+    //   unit_id: ['', Validators.required],
+    //   employer: ['', Validators.required],
+    //   house_mate_count: ['', Validators.required],
+    //   vehicle: ['', Validators.required],
+    //   applicant_id: [''],
+    // });
   }
 
   // convenience getter for easy access to form fields
   get f() {
     return this.form.controls;
+  }
+
+  get fA() {
+    return this.formApplication.controls;
   }
 
   onSubmit() {
@@ -64,6 +70,9 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
+    // this.applicationService
+    // .register(this.formApplication.value);
+
     this.accountService
       .register(this.form.value)
       .pipe(first())

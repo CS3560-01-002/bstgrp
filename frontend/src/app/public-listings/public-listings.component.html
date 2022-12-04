@@ -9,6 +9,7 @@
           <th style="width: 30%">Price</th>
           <th style="width: 30%">Availability</th>
           <th style="width: 10%"></th>
+          <th style="width: 10%"></th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +30,13 @@
                         <span *ngIf="!listing.isDeleting">Delete</span>
                     </button> -->
           </td>
+          <td style="white-space: nowrap">
+            <a
+              routerLink="../account/register"
+              class="btn btn-sm btn-primary mr-1"
+              >Apply</a
+            >
+            </td>
         </tr>
         <tr *ngIf="!publicListings">
           <td colspan="4" class="text-center">

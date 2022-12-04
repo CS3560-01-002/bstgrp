@@ -11,13 +11,14 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
+
 //newly generated components get added here
 import { LeaseComponent } from './lease/lease.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
-import { RouterModule } from '@angular/router';;
-import { PublicListingsComponent } from './public-listings/public-listings.component'
-;
-import { PublicHomeComponent } from './public-home/public-home.component'//import { SingleViewComponent } from './listings/single-view/single-view.component';
+import { RouterModule } from '@angular/router';
+import { PublicListingsComponent } from './public-listings/public-listings.component';
+import { PublicHomeComponent } from './public-home/public-home.component'
+//import { SingleViewComponent } from './listings/single-view/single-view.component';
 //import { ViewComponent } from './listings/view/view.component';
 
 @NgModule({
