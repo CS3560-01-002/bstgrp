@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://cpp3560.edwin-dev:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
