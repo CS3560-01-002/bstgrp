@@ -36,6 +36,10 @@ export class ListingService {
     return this.http.get<Unit[]>(`${environment.apiUrl}/listings/public`);
   }
 
+  getByIdPublic(id: string) {
+    return this.http.get<Unit>(`${environment.apiUrl}/listings/public/${id}`);
+  }
+
   getById(id: string) {
     return this.http.get<Unit>(`${environment.apiUrl}/listings/${id}`);
   }

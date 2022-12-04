@@ -10,6 +10,7 @@ export class PublicHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('testing public home page')
   }
 
 }

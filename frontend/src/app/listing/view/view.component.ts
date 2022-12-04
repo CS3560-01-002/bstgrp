@@ -34,8 +34,9 @@ export class ViewComponent implements OnInit {
 
 
     ngOnInit() {
+      
       this.id = this.route.snapshot.params['id']; //capturing the listings id from the url endpoint
-      this.listingService.getById(this.id).pipe(first()).subscribe(unit => this.listing = unit);
+      this.listingService.getByIdPublic(this.id).pipe(first()).subscribe(unit => this.listing = unit);
          
     }
 
