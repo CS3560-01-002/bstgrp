@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ViewComponent } from './view/view.component';
 import { PublicListingsComponent } from './public-listings.component';
-
+import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
-    {
-        path: '', component: PublicListingsComponent,
-        // children: [
-        //     { path: '', component: MaintenanceComponent }, //route to get all maintenance tickets
-        //     { path: 'issues', component:  ViewMaintenanceComponent }
-        //     //{ path: 'edit/:id', component: AddEditComponentListings }
-        // ]
-    }
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: PublicListingsComponent },
+      { path: 'view/:id', component: ViewComponent },
+    ],
+  },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PublicListingsRoutingModule { }
+export class PublicListingsRoutingModule {}
