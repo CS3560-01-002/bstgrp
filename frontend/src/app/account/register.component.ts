@@ -38,15 +38,15 @@ export class RegisterComponent implements OnInit {
       //email: ['', Validators.required],
     });
 
-    // this.formApplication = this.formBuilder.group({
-    //   credit_score: ['', Validators.required],
-    //   income: ['', Validators.required],
-    //   unit_id: ['', Validators.required],
-    //   employer: ['', Validators.required],
-    //   house_mate_count: ['', Validators.required],
-    //   vehicle: ['', Validators.required],
-    //   applicant_id: [''],
-    // });
+    this.formApplication = this.formBuilder.group({
+      credit_score: ['', Validators.required],
+      income: ['', Validators.required],
+      unit_id: ['', Validators.required],
+      employer: ['', Validators.required],
+      house_mate_count: ['', Validators.required],
+      vehicle: ['', Validators.required],
+      applicant_id: [''],
+    });
   }
 
   // convenience getter for easy access to form fields
@@ -70,8 +70,8 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    // this.applicationService
-    // .register(this.formApplication.value);
+    this.applicationService
+    .register(this.formApplication.value);
 
     this.accountService
       .register(this.form.value)

@@ -77,6 +77,23 @@
                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
+            
+            <!-- <div class="form-group">
+                <label for="creditScore">Credit Score</label>
+                <input type="text" formControlName="creditScore" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.creditScore.errors }" />
+                <div *ngIf="submitted && f.creditScore.errors" class="invalid-feedback">
+                    <div *ngIf="f.creditScore.errors.required">Credit Score is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="socialsecurity">SSN</label>
+                <input type="text" formControlName="socialsecurity" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.socialsecurity.errors }" />
+                <div *ngIf="submitted && f.socialsecurity.errors" class="invalid-feedback">
+                    <div *ngIf="f.socialsecurity.errors.required">SSN is required</div>
+                </div>
+            </div> -->
+
+        <form [formGroup]="formApplication" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="credit_score">Credit Score</label>
                 <input type="number" formControlName="credit_score" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.credit_score.errors }" />
@@ -119,27 +136,13 @@
                     <div *ngIf="fA.vehicle.errors.required">Vehicle is required</div>
                 </div>
             </div>
-            <!-- <div class="form-group">
-                <label for="creditScore">Credit Score</label>
-                <input type="text" formControlName="creditScore" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.creditScore.errors }" />
-                <div *ngIf="submitted && f.creditScore.errors" class="invalid-feedback">
-                    <div *ngIf="f.creditScore.errors.required">Credit Score is required</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="socialsecurity">SSN</label>
-                <input type="text" formControlName="socialsecurity" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.socialsecurity.errors }" />
-                <div *ngIf="submitted && f.socialsecurity.errors" class="invalid-feedback">
-                    <div *ngIf="f.socialsecurity.errors.required">SSN is required</div>
-                </div>
-            </div> -->
-            <div class="form-group">
-                <button [disabled]="loading" class="btn btn-primary">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Apply
-                </button>
-                <a routerLink="../login" class="btn btn-link">Cancel</a>
-            </div>
         </form>
-    </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Apply
+            </button>
+            <a routerLink="../login" class="btn btn-link">Cancel</a>
+        
+   
 </div>
