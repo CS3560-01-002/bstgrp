@@ -36,7 +36,7 @@ function registerSchema(req, res, next) {
         unit_no: Joi.string().required(),
         project_id: Joi.string().required(),
         description: Joi.string().required(),
-        primary_phone: Joi.string().required(),
+        //primary_phone: Joi.string().required(),
     });
     validateRequest(req, next, schema);
 }
@@ -69,7 +69,7 @@ function updateSchema(req, res, next) { //implement edit maintenance ticket late
         unit_no: Joi.string().required(),
         project_id: Joi.string().required(),
         description: Joi.string().required(),
-        primary_phone: Joi.string().required(),
+       // primary_phone: Joi.string().required(),
     });
     validateRequest(req, next, schema);
 }

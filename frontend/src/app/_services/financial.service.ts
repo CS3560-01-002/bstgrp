@@ -5,35 +5,35 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { Financial } from '@app/_models/financial';
+import { Finance } from '@app/_models/financial';
 
 @Injectable({ providedIn: 'root' })
 export class FinancialService {
-    private financialSubject: BehaviorSubject<Financial>; //replace other utilizations of this var 
-    public finance: Observable<Financial>;
+    private financialSubject: BehaviorSubject<Finance>; //replace other utilizations of this var 
+    public finance: Observable<Finance>;
 
     constructor(
         private router: Router, //implement later to navigate out of the page
         private http: HttpClient
     ) {
-        this.financialSubject = new BehaviorSubject<Financial>(JSON.parse(localStorage.getItem('finance'))); //storing new class objects in local browser storage
+        this.financialSubject = new BehaviorSubject<Finance>(JSON.parse(localStorage.getItem('finance'))); //storing new class objects in local browser storage
         this.finance = this.financialSubject.asObservable();
     }
 
-    public get financeValue(): Financial { //getter helper method to return the values of the Financial record 
+    public get financeValue(): Finance { //getter helper method to return the values of the Financial record 
         return this.financialSubject.value;
     }
 
-    register(finance: Financial) { //CRUD: create a new financial record 
+    register(finance: Finance) { //CRUD: create a new financial record 
         return this.http.post(`${environment.apiUrl}/finance/register`, finance);
     }
 
     getAll() { // to get list of all financial records
-        return this.http.get<Financial[]>(`${environment.apiUrl}/finance`);
+        return this.http.get<Finance[]>(`${environment.apiUrl}/finance`);
     }
 
     getById(id: string) { //helper function to get record by id
-        return this.http.get<Financial>(`${environment.apiUrl}/finance/${id}`);
+        return this.http.get<Finance>(`${environment.apiUrl}/finance/${id}`);
     }
 
     update(id, params) { //CRUD: update function used in editing record info 

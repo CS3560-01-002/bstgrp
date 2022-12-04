@@ -14,6 +14,8 @@ const maintenanceModule = () => import('./maintenance/maintenance.module').then(
 const leaseModule = () => import('./lease/lease.module').then(x => x.LeaseModule);
 const publicListingsModule = () => import('./public-listings/public-listings.module').then(x => x.PublicListingsModule);
 
+const testModule = () => import('./test-component/test-component.module').then(x => x.TestComponentModule);
+
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] }, 

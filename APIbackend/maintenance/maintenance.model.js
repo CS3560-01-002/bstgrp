@@ -8,7 +8,7 @@ function model(sequelize) {
         unit_no: { type: DataTypes.STRING, allowNull: false },
         project_id: { type: DataTypes.STRING, allowNull: false },
         description: { type: DataTypes.STRING, allowNull: false },
-        primary_phone: { type: DataTypes.STRING, allowNull: false },
+        //primary_phone: { type: DataTypes.STRING, allowNull: false },
     };
 
     const options = {

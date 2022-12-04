@@ -15,9 +15,10 @@ import { HomeComponent } from './home';
 import { LeaseComponent } from './lease/lease.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { RouterModule } from '@angular/router';;
-import { PublicListingsComponent } from './public-listings/public-listings.component'
-;
-import { PublicHomeComponent } from './public-home/public-home.component'//import { SingleViewComponent } from './listings/single-view/single-view.component';
+import { PublicListingsComponent } from './public-listings/public-listings.component';
+import { PublicHomeComponent } from './public-home/public-home.component';
+import { TestComponentComponent } from './test-component/test-component.component';
+
 //import { ViewComponent } from './listings/view/view.component';
 
 @NgModule({
@@ -35,7 +36,9 @@ import { PublicHomeComponent } from './public-home/public-home.component'//impor
         LeaseComponent ,
         MaintenanceComponent,
         PublicListingsComponent,
-        PublicHomeComponent],
+        PublicHomeComponent,
+        TestComponentComponent],
+
        // SingleViewComponent,
        // ViewComponent ,
     providers: [
