@@ -77,23 +77,45 @@ export class RegisterComponent implements OnInit {
     }
     console.log(this.formApplication.value);
     this.loading = true;
-    this.applicationService
-    .register(this.formApplication.value);
-
-    this.accountService
-      .register(this.form.value)
-      .pipe(first())
-      .subscribe({
+    this.accountService.register(this.form.value)
+    .pipe(first())
+    .subscribe({
         next: () => {
-          this.alertService.success('Registration successful', {
-            keepAfterRouteChange: true,
-          });
-          this.router.navigate(['../login'], { relativeTo: this.route });
+            //this.alertService.success('Registration successful', { keepAfterRouteChange: true });
+            this.applicationService.register(this.formApplication.value)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    this.alertService.success('Registration successful', { keepAfterRouteChange: true });
+                    this.router.navigate(['../login'], { relativeTo: this.route });
+                },
+                error: error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
+            });
+           // this.router.navigate(['../login'], { relativeTo: this.route });
         },
-        error: (error) => {
-          this.alertService.error(error);
-          this.loading = false;
-        },
-      });
+        error: error => {
+            this.alertService.error(error);
+            this.loading = false;
+        }
+    })
+
+    // this.accountService
+    //   .register(this.form.value)
+    //   .pipe(first())
+    //   .subscribe({
+    //     next: () => {
+    //       this.alertService.success('Registration successful', {
+    //         keepAfterRouteChange: true,
+    //       });
+    //       this.router.navigate(['../login'], { relativeTo: this.route });
+    //     },
+    //     error: (error) => {
+    //       this.alertService.error(error);
+    //       this.loading = false;
+    //     },
+    //   });
   }
 }
