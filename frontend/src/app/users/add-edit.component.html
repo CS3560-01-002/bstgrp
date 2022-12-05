@@ -44,8 +44,15 @@
 
     <div class="form-row">
         <div class="form-group col">
-            <label for="title">Title</label>
-            <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+            <label>Title</label>
+            <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                <option value=""></option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+                <option value="Ms">Mx</option>
+            </select>
             <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                 <div *ngIf="f.title.errors.required">Title is required</div>
             </div>
@@ -77,13 +84,25 @@
     </div>
 
     <div>
-        <div class="form-group col">
+        <!-- <div class="form-group col">
             <label for="account_type">Account Status: </label>
             <input type="text" formControlName="account_type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.account_type.errors }" />
             <div *ngIf="submitted && f.account_type.errors" class="invalid-feedback">
                 <div *ngIf="f.account_type.errors.required">Approval is required</div>
             </div>
-        </div> 
+        </div>  -->
+        <div class="form-group col">
+            <label>Account Status: </label>
+            <select formControlName="account_type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.account_type.errors }">
+                <option value=""></option>
+                <option value="applicant">Applicant</option>
+                <option value="tenant">Tenant</option>
+                <option value="admin">Admin</option>
+            </select>
+            <div *ngIf="submitted && f.account_type.errors" class="invalid-feedback">
+                <div *ngIf="f.account_type.errors.required">Account Approval required</div>
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">

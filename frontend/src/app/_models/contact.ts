@@ -1,4 +1,4 @@
-export class contact{
+export class Contact{
     id: number;
     user_id: number;
     phone_mobile: string;

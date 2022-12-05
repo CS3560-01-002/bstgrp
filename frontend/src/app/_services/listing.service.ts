@@ -12,11 +12,10 @@ export class ListingService {
   private listingSubject: BehaviorSubject<Unit>;
   public listing: Observable<Unit>;
 
-  constructor(
-    private router: Router,
-    private http: HttpClient
-  ) {
-    this.listingSubject = new BehaviorSubject<Unit>(JSON.parse(localStorage.getItem('listing')));
+  constructor(private router: Router, private http: HttpClient) {
+    this.listingSubject = new BehaviorSubject<Unit>(
+      JSON.parse(localStorage.getItem('listing'))
+    );
     this.listing = this.listingSubject.asObservable();
   }
 
@@ -28,18 +27,27 @@ export class ListingService {
     return this.http.post(`${environment.apiUrl}/listings/register`, listing);
   }
 
-  getAll() { //get function add comment
+  getAll() {
+    //get function add comment
     return this.http.get<Unit[]>(`${environment.apiUrl}/listings`);
+  }
+
+  getAllPublic() {
+    return this.http.get<Unit[]>(`${environment.apiUrl}/listings/public`);
   }
 
   getById(id: string) {
     return this.http.get<Unit>(`${environment.apiUrl}/listings/${id}`);
   }
 
+  getByPublicId(id: string) {
+    return this.http.get<Unit>(`${environment.apiUrl}/listings/public/${id}`);
+  }
+
   // needs to be looked over
   update(id, params) {
-    return this.http.put(`${environment.apiUrl}/listings/${id}`, params)
-      .pipe(map(x => {
+    return this.http.put(`${environment.apiUrl}/listings/${id}`, params).pipe(
+      map((x) => {
         // update local storage
         const listing = { ...this.listingValue, ...params };
         localStorage.setItem('listing', JSON.stringify(listing));
@@ -48,18 +56,20 @@ export class ListingService {
         this.listingSubject.next(listing);
 
         return x;
-      }));
+      })
+    );
   }
 
   // needs to be looked over
   delete(id: string) {
-    return this.http.delete(`${environment.apiUrl}/listings/${id}`)
-      .pipe(map(x => {
+    return this.http.delete(`${environment.apiUrl}/listings/${id}`).pipe(
+      map((x) => {
         // // auto logout if the logged in user deleted their own record
         // if (id == this.userValue.id) {
         //     this.logout();
         // }
         return x;
-      }));
-}
+      })
+    );
+  }
 }

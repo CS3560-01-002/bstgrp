@@ -18,14 +18,16 @@ export class AuthGuard implements CanActivate {
             //console.log(flag);  testing the output of the following conditional 
             if (route.data.roles && !route.data.roles.includes(user.account_type)) {
                 // role not authorized so redirect to home page
-                this.router.navigate(['/']);
+                //this.router.navigate(['/']);
+                this.router.navigate(['/home']);
                 return false;
             }
             return true;
         }
 
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/account/login'], { queryParams: { returnUrl: state.url }});
+        //this.router.navigate(['/account/login'], { queryParams: { returnUrl: state.url }});
+        this.router.navigate(['/home'], { queryParams: { returnUrl: state.url }});
         return false;
     }
 }

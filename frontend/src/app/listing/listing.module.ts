@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout.component';
 //import { AddEditListingComponent } from './add-edit-listing.component';
 import { AddEditComponentListings } from '@app/listing/add-edit.component';
 import { ViewComponent } from './view/view.component';
+import {FilterPipe} from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ViewComponent } from './view/view.component';
     //AddEditListingComponent,
   AddEditComponentListings,
     ViewComponent,
+    FilterPipe,
 ],
   imports: [
     CommonModule,

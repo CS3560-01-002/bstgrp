@@ -1,1 +1,49 @@
-<p>public-listings works!</p>
+<div class="p-4">
+  <h1>Listings</h1>
+
+  <div class="mt-30">
+    <table class="table table-bordered table-striped table-dark table-hover">
+      <thead>
+        <tr>
+          <th style="width: 30%">Unit No</th>
+          <th style="width: 30%">Price</th>
+          <th style="width: 30%">Availability</th>
+          <th style="width: 10%"></th>
+          <th style="width: 10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let listing of publicListings">
+          <td>{{ listing.unit_no }}</td>
+          <td>{{ listing.monthly_rate }}</td>
+          <td>{{ listing.availability }}</td>
+          <td style="white-space: nowrap">
+            <a
+              routerLink="view/{{ listing.id }}"
+              class="btn btn-sm btn-primary mr-1"
+              >Details</a
+            >
+            <!-- <a routerLink="view/{{listing.id}}" class="btn btn-sm btn-primary mr-1" >Details</a>
+                    <a routerLink="edit/{{listing.id}}" class="btn btn-sm btn-primary mr-1" *ngIf="this.adminAccess">Edit</a>
+                    <button (click)="deleteListing(listing.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="listing.isDeleting" *ngIf="this.adminAccess">
+                        <span *ngIf="listing.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!listing.isDeleting">Delete</span>
+                    </button> -->
+          </td>
+          <td style="white-space: nowrap">
+            <a
+              routerLink="/account/register"
+              class="btn btn-sm btn-primary mr-1"
+              >Apply</a
+            >
+            </td>
+        </tr>
+        <tr *ngIf="!publicListings">
+          <td colspan="4" class="text-center">
+            <span class="spinner-border spinner-border-lg align-center"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
