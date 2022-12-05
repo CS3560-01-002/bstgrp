@@ -99,21 +99,21 @@
             <form [formGroup]="formApplication">
                 <div class="form-group">
                     <label for="credit_score">Credit Score</label>
-                    <input type="number" formControlName="credit_score" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.credit_score.errors }" />
+                    <input type="text" formControlName="credit_score" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.credit_score.errors }" />
                     <div *ngIf="submitted && fA.credit_score.errors" class="invalid-feedback">
                         <div *ngIf="fA.credit_score.errors.required">Credit score is required</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="income">Income</label>
-                    <input type="number" formControlName="income" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.income.errors }" />
+                    <input type="text" formControlName="income" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.income.errors }" />
                     <div *ngIf="submitted && fA.income.errors" class="invalid-feedback">
                         <div *ngIf="fA.income.errors.required">Income is required</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="unit_id">Desired Unit</label>
-                    <input type="number" formControlName="unit_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.unit_id.errors }" />
+                    <input type="text" formControlName="unit_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.unit_id.errors }" />
                     <div *ngIf="submitted && fA.unit_id.errors" class="invalid-feedback">
                         <div *ngIf="fA.unit_id.errors.required">Unit is required</div>
                     </div>
@@ -127,14 +127,14 @@
                 </div>
                 <div class="form-group">
                     <label for="house_mate_count">House Mate Count</label>
-                    <input type="number" formControlName="house_mate_count" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.house_mate_count.errors }" />
+                    <input type="text" formControlName="house_mate_count" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.house_mate_count.errors }" />
                     <div *ngIf="submitted && fA.house_mate_count.errors" class="invalid-feedback">
                         <div *ngIf="fA.house_mate_count.errors.required">House Mate Count is required</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="vehicle">Vehicle</label>
-                    <input type="number" formControlName="vehicle" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.vehicle.errors }" />
+                    <input type="text" formControlName="vehicle" class="form-control" [ngClass]="{ 'is-invalid': submitted && fA.vehicle.errors }" />
                     <div *ngIf="submitted && fA.vehicle.errors" class="invalid-feedback">
                         <div *ngIf="fA.vehicle.errors.required">Vehicle is required</div>
                     </div>

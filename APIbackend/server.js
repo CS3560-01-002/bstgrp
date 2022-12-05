@@ -13,6 +13,7 @@ app.use(cors());
 app.use('/users', require('./users/users.controller')); //calls the backend controller function for the users
 app.use('/listings', require('./listings/listings.controller'));
 app.use('/maintenance', require('./maintenance/maintenance.controller'));
+app.use('/application', require('./application/application.controller'));
 
 
 // global error handler

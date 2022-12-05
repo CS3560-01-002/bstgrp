@@ -5,6 +5,7 @@ const validateRequest = require("_middleware/validate-request");
 const authorize = require("_middleware/authorize");
 const applicationService = require("./application.service");
 
+
 // routes
 //router.post('/authenticate', authenticateSchema, authenticate);
 router.post("/register", registerSchema, register);
@@ -44,6 +45,7 @@ function registerSchema(req, res, next) {
 }
 
 function register(req, res, next) {
+  console.log(req.body);
   applicationService
     .create(req.body)
     .then(() => res.json({ message: "Application creation successful" }))

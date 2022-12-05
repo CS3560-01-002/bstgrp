@@ -45,6 +45,7 @@ async function create(params) {
   //handle other logic for updating other unit fields
 
   // save user
+  console.log(params);
   await db.Application.create(params);
 }
 
